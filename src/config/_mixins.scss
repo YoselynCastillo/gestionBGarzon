@@ -1,0 +1,130 @@
+@import './variables';
+@import './functions';
+
+@mixin mq($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin textStyle( $fontFamily, $fontStyle, $fontWeight, $fontSize, $lineHeight, $letterSpacing, $color) {
+  font-family: unquote($fontFamily);
+  font-style: unquote($fontStyle);
+  font-weight: unquote($fontWeight);
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+  color: unquote($color);
+  transform: rotate(-0.04deg);
+}
+
+@mixin titleText( $sizeText, $fontSize: 40px , $lineHeight: 58px, $letterSpacing: 0.2px, $color: '#000', $fontWeight: '600') {
+  // @if $fontFamily == 'Poppins' {
+  //   font-family: Poppins;
+  //   letter-spacing: 0.2px;
+  //   font-weight: 600;
+  //   $textStyles: $titleStyles;
+  // } @else {
+  //   @if $fontFamily == 'Open Sans' {
+  //     font-family: Open Sans;
+  //     letter-spacing: 0.1px;
+  //     font-weight: normal;
+  //     $textStyles: $openSansText;
+  //   }
+  // }
+  
+  font-family: Poppins;
+  font-style: normal;
+  letter-spacing: $letterSpacing;
+  // transform: rotate(-0.04deg);
+  color: unquote($color);
+  font-weight: unquote($fontWeight);
+
+  // @if map-has-key($textStyles, $sizeText) {
+  @if map-has-key($titleStyles, $sizeText) {
+    font-size: setTitleStyle($sizeText, font-size);
+    line-height: setTitleStyle($sizeText, line-height);;
+  } @else {
+    @if $sizeText == 'vw' {
+      font-size: 3.125vw;
+      line-height: 3.906vw;
+      letter-spacing: 0.010vw;
+    }
+    @if $sizeText == 'custom' {
+      font-size: $fontSize;
+      line-height: $lineHeight;
+      letter-spacing: $letterSpacing;
+      font-weight: $fontWeight;
+    }
+  }
+}
+@mixin textStyles( $fontFamily, $sizeText, $fontSize: 40px , $lineHeight: 58px, $letterSpacing: 0.2px, $color: '#000', $fontWeight: '600') {
+  $textValues: $titleStyles;
+  @if $fontFamily == 'Poppins' {
+    $letterSpacing: 0.2px;
+    $textValues: $titleStyles;
+    $fontWeight: 600;
+    font-family: Poppins;
+    font-weight: $fontWeight;
+  } @else {
+    @if $fontFamily == 'Open Sans' {
+      $letterSpacing: 0.1px;
+      $textValues: $openSansText;
+      $fontWeight: normal;
+      font-family: Open Sans;
+      font-weight: $fontWeight;
+    } @else {
+      @if $fontFamily == 'Roboto' {
+        $textValues: $robotoText;
+        $fontWeight: 400;
+        font-family: Roboto;
+        font-weight: normal;
+      } @else {
+        @if $fontFamily == 'Roboto Bold' {
+          // $letterSpacing: 0.1px;
+          $textValues: $robotoText; //por configurar
+          font-family: Roboto;
+          font-weight: bold;
+        }
+      }
+    } 
+  } 
+  letter-spacing: $letterSpacing;
+  color: unquote($color);
+  @if map-has-key($textValues, $sizeText) {
+    font-size: setTextStyles($sizeText, font-size, $textValues);
+    line-height: setTextStyles($sizeText, line-height, $textValues);;
+  } @else {
+    @if $sizeText == 'vw' {
+      font-size: 3.125vw;
+      line-height: 3.906vw;
+      letter-spacing: 0.010vw;
+    }
+    @if $sizeText == 'custom' {
+      font-size: $fontSize;
+      line-height: $lineHeight;
+      letter-spacing: $letterSpacing;
+      font-weight: $fontWeight;
+    }
+  }
+}
+
+
+@mixin cardStyle( $flexDirection) {
+  background: #FFFFFF;
+  border: 1px solid #E5EAF4;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: unquote($flexDirection);
+}
+
+@mixin container($flexDirection, $justifyContent: center, $alignItems: center) {
+  display: flex;
+  flex-direction: unquote($flexDirection);
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+
+

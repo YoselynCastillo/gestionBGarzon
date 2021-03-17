@@ -1,0 +1,28 @@
+<div class="container table-responsive col-md-10">
+  <table class="table table-hover mt-2">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Movil</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-info" *ngFor="let account of accounts$ | async">
+        <th scope="row">{{account.id}}</th>
+        <td>{{account.username}}</td>
+        <td>{{account.email}}</td>
+        <td>{{account.movil}}</td>
+        <td class="btn-group d-none d-sm-block" role="group">
+          <button type="button" class="btn btn-outline-success m-1" (click)="goToEdit(account)">Edit</button>
+          <button type="button" class="btn btn-outline-info m-1" (click)="goToSee(account)">See</button>
+          <button type="button" class="btn btn-outline-danger m-1" (click)="goToDelete(account)">Delete</button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>

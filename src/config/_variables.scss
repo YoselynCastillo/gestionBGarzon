@@ -1,0 +1,83 @@
+$titleSize : 33px;
+$titleLineHeight : 44px;
+
+$backgroundImgCard: #BD31FF, #31B5FF, #FFA031, #28C42E, #FF4A31, #3190FF;
+$shadowImgCard: '0px 100px 80px rgba(231, 17, 239, 0.15), 0px 41.7776px 33.4221px rgba(231, 17, 239, 0.107828), 0px 22.3363px 17.869px rgba(231, 17, 239, 0.0894161), 0px 12.5216px 10.0172px rgba(231, 17, 239, 0.075), 0px 6.6501px 5.32008px rgba(231, 17, 239, 0.0605839), 0px 2.76726px 2.21381px rgba(231, 17, 239, 0.0421718)',
+                '0px 100px 80px rgba(17, 124, 239, 0.15), 0px 41.7776px 33.4221px rgba(17, 124, 239, 0.107828), 0px 22.3363px 17.869px rgba(17, 124, 239, 0.0894161), 0px 12.5216px 10.0172px rgba(17, 124, 239, 0.075), 0px 6.6501px 5.32008px rgba(17, 124, 239, 0.0605839), 0px 2.76726px 2.21381px rgba(17, 124, 239, 0.0421718)',
+                '0px 100px 80px rgba(239, 81, 17, 0.15), 0px 41.7776px 33.4221px rgba(239, 81, 17, 0.107828), 0px 22.3363px 17.869px rgba(239, 81, 17, 0.0894161), 0px 12.5216px 10.0172px rgba(239, 81, 17, 0.075), 0px 6.6501px 5.32008px rgba(239, 81, 17, 0.0605839), 0px 2.76726px 2.21381px rgba(239, 81, 17, 0.0421718)',
+                '0px 100px 80px rgba(17, 239, 21, 0.15), 0px 41.7776px 33.4221px rgba(17, 239, 21, 0.107828), 0px 22.3363px 17.869px rgba(17, 239, 21, 0.0894161), 0px 12.5216px 10.0172px rgba(17, 239, 21, 0.075), 0px 6.6501px 5.32008px rgba(17, 239, 21, 0.0605839), 0px 2.76726px 2.21381px rgba(17, 239, 21, 0.0421718)',
+                '0px 100px 80px rgba(239, 17, 17, 0.15), 0px 41.7776px 33.4221px rgba(239, 17, 17, 0.107828), 0px 22.3363px 17.869px rgba(239, 17, 17, 0.0894161), 0px 12.5216px 10.0172px rgba(239, 17, 17, 0.075), 0px 6.6501px 5.32008px rgba(239, 17, 17, 0.0605839), 0px 2.76726px 2.21381px rgba(239, 17, 17, 0.0421718)',
+                '0px 100px 80px rgba(17, 79, 239, 0.15), 0px 41.7776px 33.4221px rgba(17, 79, 239, 0.107828), 0px 22.3363px 17.869px rgba(17, 79, 239, 0.0894161), 0px 12.5216px 10.0172px rgba(17, 79, 239, 0.075), 0px 6.6501px 5.32008px rgba(17, 79, 239, 0.0605839), 0px 2.76726px 2.21381px rgba(17, 79, 239, 0.0421718)';
+
+
+$titleStyles: (
+  xs: (
+    font-size: 24px,
+    line-height: 36px,
+  ),
+  sm: (
+    font-size: 33px,
+    line-height: 44px,
+  ),
+  md: (
+    font-size: 36px,
+    line-height: 48px,
+  ),
+  lg: (
+    font-size: 48px,
+    line-height: 68px,
+  ),
+  xlg: (
+    font-size: 60px,
+    line-height: 75px,
+  ),
+);
+
+$openSansText: (
+  xs: (
+    font-size: 14px,
+    line-height: 24px,
+  ),
+  sm: (
+    font-size: 16px,
+    line-height: 28px,
+  ),
+  md: (
+    font-size: 18px,
+    line-height: 36px,
+  ),
+  lg: (
+    font-size: 20px,
+    line-height: 36px,
+  ),
+  xlg: (
+    font-size: 24px,
+    line-height: 36px,
+  ),
+);
+$robotoText: (
+  xs: (
+    font-size: 14px,
+    line-height: 24px,
+  ),
+  sm: (
+    font-size: 18px,
+    line-height: 24px,
+  ),
+  md: (
+    font-size: 18px,
+    line-height: 36px,
+  ),
+  lg: (
+    font-size: 20px,
+    line-height: 36px,
+  ),
+  xlg: (
+    font-size: 24px,
+    line-height: 36px,
+  ),
+);
+
+$textValues: 1 !default;
+
+

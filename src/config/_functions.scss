@@ -1,0 +1,9 @@
+@function setTitleStyle($scheme, $type) {
+  @return map-get(map-get($titleStyles, $scheme), $type);
+}
+@function setOpenSansStyle($scheme, $type) {
+  @return map-get(map-get($openSansText, $scheme), $type);
+}
+@function setTextStyles($scheme, $type, $mapValues) {
+  @return map-get(map-get($mapValues, $scheme), $type);
+}
