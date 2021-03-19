@@ -1,0 +1,23 @@
+<div class="container table-responsive col-md-10">
+  <table class="table table-hover mt-2">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Operacion</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Tabla</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-info" *ngFor="let audit of audits$ | async">
+        <th scope="row">{{audit.Co_Auditoria}}</th>
+        <td>{{audit.Co_Tipo_Operacion}}</td>
+        <td>{{audit.Co_Usuario}}</td>
+        <td>{{audit.Nb_Tabla}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { BankService } from 'src/app/services/bank.service';
+import { Bank } from 'src/app/shared/models/bank.interface';
 
 @Component({
   selector: 'app-bank-list',
@@ -22,13 +23,10 @@ export class BankListComponent implements OnInit {
     this.navigationExtras.state.value = item;
     this.router.navigate(['edit-bank'], this.navigationExtras);
   }
-  // public goToSee(item){
-  //   this.navigationExtras.state.value = item;
-  //   this.router.navigate(['details'], this.navigationExtras);
-  // }
-  async goToDelete(item: Account): Promise<void> {
+
+  async goToDelete(item: Bank): Promise<void> {
     try {
-      await this.banksService.onDeleteBanks(item.id);
+      await this.banksService.onDeleteBanks(item.Co_Banco);
       alert('Deleted');
     } catch (err) {
       console.log(err);

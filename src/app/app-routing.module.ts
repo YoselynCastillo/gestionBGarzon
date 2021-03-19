@@ -55,6 +55,8 @@ const routes: Routes = [
   { path: 'account-list', loadChildren: () => import('./pages/bank-account/bank-account-list/bank-account-list.module').then(m => m.BankAccountListModule) },
   { path: 'edit-account', loadChildren: () => import('./pages/bank-account/edit-bank-account/edit-bank-account.module').then(m => m.EditBankAccountModule) },
   { path: 'new-account', loadChildren: () => import('./pages/bank-account/new-bank-account/new-bank-account.module').then(m => m.NewBankAccountModule) },
+  { path: 'audit-list', loadChildren: () => import('./pages/audit/audit-list/audit-list.module').then(m => m.AuditListModule) },
+  { path: 'audit-details', loadChildren: () => import('./pages/audit/audit-details/audit-details.module').then(m => m.AuditDetailsModule) },
 ];
 
 @NgModule({

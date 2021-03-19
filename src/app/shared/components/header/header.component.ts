@@ -11,10 +11,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public user$: Observable<User> = this.authSvc.afAuth.user;
-
-  constructor(public authSvc: AuthService, private router: Router) {}
+  constructor(public authSvc: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
+   
   }
 
 
