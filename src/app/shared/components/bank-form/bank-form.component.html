@@ -1,17 +1,17 @@
-
-
-<div class="container col-md-11">
-  <div class="col-md-10 offset-md-1"><hr>
-    <form (ngSubmit)="onSave()" [formGroup]="bankForm">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Nombre del banco" formControlName="Nb_Banco" [class]="isValidField('Nb_Banco')">
+<div class="container">
+  <div class="row mt-5 justify-content-center"> 
+    <div class="col-sm-8">
+      <form (ngSubmit)="onSave()" [formGroup]="bankForm">
+        <div class="form">
+          <div class="form-group justify-content-around">
+            <input type="text" class="form-control" placeholder="Nombre del banco" formControlName="Nb_Banco" [class]="isValidField('Nb_Banco')">
+          </div>
         </div>
-      </div>
-      <div class="container-fluid	row justify-content-around">
-        <button type="submit" class="btn bg-dark text-light col-md-5">Guardar</button>
-        <button type="button" class="btn btn-secondary col-md-5 float-center" (click)="onGoBackToList()">Go Back to list</button>
-      </div>
-    </form>
+        <div class="container-fluid	row justify-content-around">
+          <button type="submit" class="btn bg-success text-light col-md-5">Guardar</button>
+          <button type="button" class="btn btn-primary col-md-5 float-center" (click)="onGoBackToList()">Regresar a Lista</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

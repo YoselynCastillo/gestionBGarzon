@@ -1,8 +1,6 @@
 <div class="container">
   <div class="row mt-5 justify-content-center">
     <div class="col-sm-8">
-      <h1 class="text-center">Tipos de Cuentas</h1>
-      <br>
       <form (ngSubmit)="onSave()" [formGroup]="accountTypeForm">
 
         <div class="form-row">
@@ -18,10 +16,9 @@
         </div>
 
         <div class="container-fluid   row justify-content-around">
-          <button type="submit" class="btn bg-dark text-light col-md-5">Guardar</button>
-          <button type="button" class="btn btn-secondary col-md-5 float-center" (click)="onGoBackToList()">Regresar
-            a
-            la lista</button>
+          <button type="submit" class="btn bg-success text-light col-md-5">Guardar</button>
+          <button type="button" class="btn btn-primary col-md-5 float-center" (click)="onGoBackToList()">Regresar
+            a lista</button>
         </div>
       </form>
     </div>
