@@ -2,32 +2,33 @@
   <div class="col-md-6 mx-auto mt-5">
     <div class="card">
       <div class="card-body">
-        <h1 class="text-center">LOGIN</h1>
+        <h2 class="text-center" >Iniciar Sesion</h2>
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" formControlName="email" />
+            <input type="email" class="form-control" formControlName="email" placeholder="email@gmail.com" />
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Contraseña</label>
             <input
               type="password"
               class="form-control"
               formControlName="password"
+              placeholder="password"
             />
           </div>
-          <button class="btn btn-primary btn-lg btn-block">
-            Login
+          <button class="btn btn-primary btn-block">
+            Ingresar
           </button>
         </form>
-        <div class="form-group mt-3">
+        <div class="form-group mt-3 text-center">
           <p>
-            Create an account ? <a [routerLink]="['/register']"> Register </a>
+            ¿Crear una cuenta? <a [routerLink]="['/register']"> Registrate </a>
           </p>
         </div>
-        <div class="form-group mt-3">
+        <div class="form-group mt-3 text-center">
           <p>
-            <a [routerLink]="['/forgot-password']"> Forgot password ? </a>
+            <a [routerLink]="['/forgot-password']"> ¿Has olvidado tu contraseña? </a>
           </p>
         </div>
       </div>
