@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-new-bank-account',
-  templateUrl: './new-bank-account.component.html',
-  styleUrls: ['./new-bank-account.component.scss']
+  template: '<app-bank-account-form></app-bank-account-form>'
 })
-export class NewBankAccountComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class NewBankAccountComponent {
 
 }
