@@ -13,14 +13,16 @@ export class RegisterComponent {
   registerForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
+    Nb_Usuario: new FormControl(''),
+    Nu_Movil: new FormControl(''),
   });
 
   constructor(private authSvc: AuthService, private router: Router) {}
 
   async onRegister() {
-    const { email, password } = this.registerForm.value;
+    const { email, password, Nb_Usuario, Nu_Movil  } = this.registerForm.value;
     try {
-      const user = await this.authSvc.register(email, password);
+      const user = await this.authSvc.register(email, password, Nb_Usuario, Nu_Movil );
       if (user) {
         this.router.navigate(['/list']);
         // this.checkUserIsVerified(user);

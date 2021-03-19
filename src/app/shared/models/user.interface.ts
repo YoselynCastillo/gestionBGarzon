@@ -9,4 +9,11 @@ export interface User {
   password?: string;
   photoURL?: string;
   role?: Roles;
+  Nb_Usuario?: string;
+  Nu_Movil?: string;
+  Tx_Clave?: string;
+  Nu_Intentos?: number;
+  Fe_Recuperacion?: Date;
+  St_Bloqueo?: boolean;
+  St_Activo?: boolean;
 }

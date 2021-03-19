@@ -45,19 +45,20 @@ export class AuthService extends RoleValidator {
         email,
         password
       );
-      this.updateUserData(user);
+      // this.updateUserData(user);
       return user;
     } catch (error) {
       console.log(error);
     }
   }
 
-  async register(email: string, password: string): Promise<User> {
+  async register(email: string, password: string,  Nb_Usuario: string, Nu_Movil: string ): Promise<User> {
     try {
       const { user } = await this.afAuth.createUserWithEmailAndPassword(
         email,
         password
       );
+      this.addDataUser(user , password, Nb_Usuario, Nu_Movil);
       // await this.sendVerificationEmail();
       return user;
     } catch (error) {
@@ -89,4 +90,31 @@ export class AuthService extends RoleValidator {
 
     return userRef.set(data, { merge: true });
   }
+
+  private addDataUser(user ,  password: string, Nb_Usuario: string, Nu_Movil: string ) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+      `users/${user.uid}`
+    );
+    let Fe_Recuperacion= new Date();
+
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      emailVerified: true,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      role: 'ADMIN',
+      Nb_Usuario: Nb_Usuario,
+      Nu_Movil: Nu_Movil,
+      Tx_Clave: password,
+      Nu_Intentos: 3,
+      St_Bloqueo: false,
+      St_Activo: true,
+      Fe_Recuperacion: Fe_Recuperacion,
+    };
+
+    return userRef.set(data, { merge: true });
+  }
+
+
 }
