@@ -9,14 +9,11 @@ import { AngularFireModule} from '@angular/fire';
 import { AngularFirestore} from  '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { BankAccountFormComponent } from './shared/components/bank-account-form/bank-account-form.component';
-import { BankAccountFormModule } from './shared/components/bank-account-form/bank-account-form.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent
-    //BankAccountFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +21,6 @@ import { BankAccountFormModule } from './shared/components/bank-account-form/ban
     HeaderModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NoopAnimationsModule,
-    BankAccountFormModule,// <---------------
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

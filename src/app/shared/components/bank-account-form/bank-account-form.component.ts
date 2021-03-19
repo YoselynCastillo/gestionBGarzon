@@ -25,15 +25,10 @@ export class BankAccountFormComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, private bankAccountSvc: BankAccountService) {
     const navitation = this.router.getCurrentNavigation();
     this.bankAccount = navitation?.extras?.state?.value;
-    this.initForm();
+    // this.initForm();
    }
 
   ngOnInit(): void {
-    if(typeof this.bankAccount === 'undefined'){
-      this.router.navigate(['']);
-    }else{
-      this.bankAccountForm.patchValue(this.bankAccount);
-    }
   }
 
   onSave(): void{

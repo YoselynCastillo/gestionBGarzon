@@ -11,7 +11,7 @@ import { BankAccountFormModule } from 'src/app/shared/components/bank-account-fo
   imports: [
     CommonModule,
     NewBankAccountRoutingModule,
-    BankAccountFormModule
+    BankAccountFormModule,
   ]
 })
 export class NewBankAccountModule { }

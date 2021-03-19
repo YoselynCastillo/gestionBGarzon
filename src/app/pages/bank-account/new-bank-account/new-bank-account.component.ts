@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  template: '<app-bank-account-form></app-bank-account-form>'
+  selector: 'app-new-bank-account',
+  templateUrl: './new-bank-account.component.html',
+  styleUrls: ['./new-bank-account.component.scss']
 })
 export class NewBankAccountComponent {
 
