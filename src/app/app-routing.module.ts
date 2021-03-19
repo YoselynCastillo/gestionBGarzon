@@ -46,6 +46,12 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./pages/auth/login/login.module').then(m => m.LoginModule) },
   { path: 'register', loadChildren: () => import('./pages/auth/register/register.module').then(m => m.RegisterModule) },
   { path: 'consultas', loadChildren: () => import('./pages/consultas/consultas-list/consultas.module').then(m => m.ConsultasModule) },
+  { path: 'bank-list', loadChildren: () => import('./pages/bank/bank-list/bank-list.module').then(m => m.BankListModule) },
+  { path: 'new-bank', loadChildren: () => import('./pages/bank/new-bank/new-bank.module').then(m => m.NewBankModule) },
+  { path: 'edit-bank', loadChildren: () => import('./pages/bank/edit-bank/edit-bank.module').then(m => m.EditBankModule) },
+  { path: 'edit-type', loadChildren: () => import('./pages/account-type/edit-account-type/edit-account-type.module').then(m => m.EditAccountTypeModule) },
+  { path: 'new-type', loadChildren: () => import('./pages/account-type/new-account-type/new-account-type.module').then(m => m.NewAccountTypeModule) },
+  { path: 'type-list', loadChildren: () => import('./pages/account-type/account-type-list/account-type-list.module').then(m => m.AccountTypeListModule) },
 ];
 
 @NgModule({

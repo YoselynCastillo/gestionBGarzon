@@ -1,0 +1,29 @@
+<div class="container table-responsive col-md-10">
+  <table class="table table-hover mt-2">
+    <thead>
+      <tr>
+        <th scope="col">Co_Banco</th>
+        <th scope="col">Nb_Banco</th>
+        <!-- <th scope="col">Co_Funcional</th> -->
+        <th scope="col">St_Activo</th>
+        <th scope="col">Co_Auditoria</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-info" *ngFor="let bank of banks$ | async">
+        <th scope="row">{{bank.Co_Banco}}</th>
+        <td>{{bank.Nb_Banco}}</td>
+        <td>{{bank.St_Activo}}</td>
+        <td>{{bank.Co_Auditoria}}</td>
+        <td class="btn-group d-none d-sm-block" role="group">
+          <button type="button" class="btn btn-outline-success m-1" (click)="goToEdit(bank)">Edit</button>
+          <!-- <button type="button" class="btn btn-outline-info m-1" (click)="goToSee(bank)">See</button> -->
+          <button type="button" class="btn btn-outline-danger m-1" (click)="goToDelete(bank)">Delete</button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
