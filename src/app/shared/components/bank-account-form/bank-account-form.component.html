@@ -1,27 +1,25 @@
 <div class="container">
     <div class="row mt-5 justify-content-center">
       <div class="col-sm-8">
-        <h1 class="text-center">Consultas Bancarias</h1>
-        <form>
-          <select class="form-select mt-4" aria-label="Default select example">
-            <option selected>Banco</option>
-            <option value="1">Venezuela</option>
-            <option value="2">Mercantil</option>
-            <option value="3">Provincial</option>
+        <h1 class="text-center">Nueva Cuenta Bancarias</h1>
+        <form (ngSubmit)="onSave()" [formGroup]="bankAccountForm">
+          <select formControlName="Co_Banco" name="first" (change)="onSelectBank($event.target.value)" class="form-select mt-4" aria-label="Default select example">
+            <option *ngFor="let item of banks | async" value="{{ item.Co_Banco }}">
+              {{ item.Nb_Banco }}
+            </option>
           </select>
           <div class="mb-4 mt-4">
             <label for="inputNuCuenta" class="form-label">Numero de Cuenta Bancaria</label>
-            <input type="email" class="form-control" id="inputNuCuenta" aria-describedby="emailHelp">
+            <input formControlName="Nu_Banco_Cuenta" type="text" class="form-control" id="inputNuCuenta" aria-describedby="emailHelp">
           </div>
-          <select class="form-select mt-4" aria-label="Default select example">
-            <option selected>Tipo de Cuenta</option>
-            <option value="1">Ahorro</option>
-            <option value="2">Corriente</option>
-            <option value="3">Nómina</option>
+          <select formControlName="Co_Banco_Tipo_Cuenta" name="second" (change)="onSelectBankType($event.target.value)" class="form-select mt-4" aria-label="Default select example">
+            <option *ngFor="let item of accountTypes | async" value="{{ item.Co_Banco_Tipo_Cuenta }}">
+              {{ item.Nb_Banco_Tipo_Cuenta }}
+            </option>
           </select>
           <div class="mb-4 mt-4">
             <label for="inputCoCuenta" class="form-label">Codigo de Empresa</label>
-            <input type="email" class="form-control" id="inputCoCuenta" aria-describedby="emailHelp">
+            <input formControlName="Co_Empresa" type="text" class="form-control" id="inputCoCuenta" aria-describedby="emailHelp">
           </div>
 
           <div class="col text-center">
@@ -31,3 +29,6 @@
       </div>
     </div>
   </div>
+
+<!--   [(ngModel)]="bank.Co_Banco"
+  [(ngModel)]="accountType.Co_Banco_Tipo_Cuenta" -->

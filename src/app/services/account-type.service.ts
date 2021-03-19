@@ -15,7 +15,7 @@ export class AccountTypeService {
   private accountsTypeCollection: AngularFirestoreCollection<AccountType>;
 
   constructor(private readonly afs: AngularFirestore) {
-    this.accountsTypeCollection = afs.collection<AccountType>('accountstype');
+    this.accountsTypeCollection = afs.collection<AccountType>('banco_tipo_cuenta');// antes era accountsstype
     this.getAccountsType();
   }
 
