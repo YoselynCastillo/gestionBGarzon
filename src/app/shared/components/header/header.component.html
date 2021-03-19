@@ -7,17 +7,48 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto"  *ngIf="user$ | async as user">
-        
-        <li class="nav-item" >
+<!-- //---------------------------------------------------------------------------// -->        
+        <!-- <li class="nav-item" >
           <a class="nav-link" [routerLink]="['/new']">Nueva persona</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link" [routerLink]="['/list']">List</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link" [routerLink]="['/bitacora']">Bitacora</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/consultas']">Consultas</a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Bancos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <a class="nav-link links" [routerLink]="['/new-bank']">Añadir Banco</a>
+            <a class="nav-link links" [routerLink]="['/bank-list']">Lista de bancos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tipos de Cuenta
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <a class="nav-link links" [routerLink]="['/new-type']">Añadir</a>
+            <a class="nav-link links" [routerLink]="['/type-list']">Lista</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cuentas Bancarias
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <a class="nav-link links" [routerLink]="['/new-account']">Añadir</a>
+            <a class="nav-link links" [routerLink]="['/account-list']">Lista</a>
+          </div>
+        </li>
       </ul>
+<!-- //---------------------------------------------------------------------------// -->
       <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else login">
         <li class="nav-item" *ngIf="user">
           <a href="#" class="nav-link" (click)="onLogout()">Logout</a>
