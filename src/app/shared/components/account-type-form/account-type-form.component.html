@@ -1,26 +1,29 @@
 <div class="container">
-    <div class="row mt-5 justify-content-center">
-      <div class="col-sm-8">
-        <h1 class="text-center">Tipos de Cuentas</h1>
-        <br>
-        <form (ngSubmit)="onSave()" [formGroup]="accountTypeForm">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-sm-8">
+      <h1 class="text-center">Tipos de Cuentas</h1>
+      <br>
+      <form (ngSubmit)="onSave()" [formGroup]="accountTypeForm">
 
-        		<div class="form-row">
-        			<div class="form-group col-md-6">
-        				<input type="text" class="form-control" placeholder="Tipo de Cuenta nueva" formControlName="Nb_Banco_Tipo_Cuenta" [class]="	isValidField('Nb_Banco_Tipo_Cuenta')">
-        			</div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control" placeholder="Tipo de Cuenta nueva"
+              formControlName="Nb_Banco_Tipo_Cuenta" [class]="	isValidField('Nb_Banco_Tipo_Cuenta')">
+          </div>
 
-                    <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="St_Activo" formControlName="St_Activo" [class]=" isValidField('St_Activo')">
-                    </div>
-                </div>
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control" placeholder="St_Activo" formControlName="St_Activo"
+              [class]=" isValidField('St_Activo')">
+          </div>
+        </div>
 
-                <div class="container-fluid   row justify-content-around">
-                    <button type="submit" class="btn bg-dark text-light col-md-5">Guardar</button>
-                    <button type="button" class="btn btn-secondary col-md-5 float-center" (click)="onGoBackToList()">Go Back to list</button>
-                </div>
-          
-        </form>
-      </div>
+        <div class="container-fluid   row justify-content-around">
+          <button type="submit" class="btn bg-dark text-light col-md-5">Guardar</button>
+          <button type="button" class="btn btn-secondary col-md-5 float-center" (click)="onGoBackToList()">Regresar
+            a
+            la lista</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
