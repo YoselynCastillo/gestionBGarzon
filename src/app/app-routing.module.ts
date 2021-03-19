@@ -52,6 +52,9 @@ const routes: Routes = [
   { path: 'edit-type', loadChildren: () => import('./pages/account-type/edit-account-type/edit-account-type.module').then(m => m.EditAccountTypeModule) },
   { path: 'new-type', loadChildren: () => import('./pages/account-type/new-account-type/new-account-type.module').then(m => m.NewAccountTypeModule) },
   { path: 'type-list', loadChildren: () => import('./pages/account-type/account-type-list/account-type-list.module').then(m => m.AccountTypeListModule) },
+  { path: 'account-list', loadChildren: () => import('./pages/bank-account/bank-account-list/bank-account-list.module').then(m => m.BankAccountListModule) },
+  { path: 'edit-account', loadChildren: () => import('./pages/bank-account/edit-bank-account/edit-bank-account.module').then(m => m.EditBankAccountModule) },
+  { path: 'new-account', loadChildren: () => import('./pages/bank-account/new-bank-account/new-bank-account.module').then(m => m.NewBankAccountModule) },
 ];
 
 @NgModule({
