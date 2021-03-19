@@ -10,6 +10,8 @@ import { AngularFirestore} from  '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HeaderModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NoopAnimationsModule,
+    //FormsModule,
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
