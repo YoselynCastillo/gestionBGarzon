@@ -3,27 +3,30 @@
       <div class="col-sm-8">
         <h1 class="text-center">Consultas Bancarias</h1>
         <form>
-          <select class="form-select mt-4" aria-label="Default select example">
-            <option selected>Banco</option>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Banco</label>
+            <select class="form-control" id="exampleFormControlSelect1">
             <option value="1">Venezuela</option>
             <option value="2">Mercantil</option>
             <option value="3">Provincial</option>
-          </select>
+            </select>
+          </div>
           <div class="mb-4 mt-4">
             <label for="inputNuCuenta" class="form-label">Numero de Cuenta Bancaria</label>
-            <input type="email" class="form-control" id="inputNuCuenta" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="inputNuCuenta" aria-describedby="emailHelp" placeholder="Numero de Cuenta">
           </div>
-          <select class="form-select mt-4" aria-label="Default select example">
-            <option selected>Tipo de Cuenta</option>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Tipo de Cuenta</label>
+            <select class="form-control" id="exampleFormControlSelect1">
             <option value="1">Ahorro</option>
             <option value="2">Corriente</option>
             <option value="3">Nómina</option>
-          </select>
+            </select>
+          </div>
           <div class="mb-4 mt-4">
             <label for="inputCoCuenta" class="form-label">Codigo de Empresa</label>
-            <input type="email" class="form-control" id="inputCoCuenta" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="inputCoCuenta" aria-describedby="emailHelp" placeholder="Codigo">
           </div>
-
           <div class="col text-center">
             <button type="submit" class="btn btn-primary mt-4">Enviar</button>
           </div>
