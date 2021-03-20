@@ -69,7 +69,7 @@ export class BitacoraFormComponent implements OnInit {
     this.bitacoraForm = this.fb.group({
       id: [''],
       co_bitacora_previa: ['', [Validators.required]],
-      co_Account: ['', [Validators.required]],
+      co_usuario: ['', [Validators.required]],
       fe_Ins: ['', [Validators.required]],
     });
   }

@@ -36,8 +36,6 @@ export class AccountsService {
         const id = empId || this.afs.createId();
         const data = { id, ...employee };
 
-        const cadena = { 'id': '', 'co_bitacora_previa': 'xxxxxxxx' , 'co_Account': id, 'fe_Ins':'01/01/01'};
-        console.log(this.bitacoraService.onSaveBitacoras(cadena));
         const result = await this.accountsCollection.doc(id).set(data);
         resolve(result);
       } catch (err) {

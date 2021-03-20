@@ -57,6 +57,9 @@ const routes: Routes = [
   { path: 'new-account', loadChildren: () => import('./pages/bank-account/new-bank-account/new-bank-account.module').then(m => m.NewBankAccountModule) },
   { path: 'audit-list', loadChildren: () => import('./pages/audit/audit-list/audit-list.module').then(m => m.AuditListModule) },
   { path: 'audit-details', loadChildren: () => import('./pages/audit/audit-details/audit-details.module').then(m => m.AuditDetailsModule) },
+  { path: 'bitacora-list', loadChildren: () => import('./pages/bitacoras/bitacoras-list/bitacora-list.module').then(m => m.BitacoraListModule) },
+  { path: 'edit-bitacora', loadChildren: () => import('./pages/bitacoras/edit-bitacora/edit-bitacora.module').then(m => m.EditBitacoraModule) },
+  
 ];
 
 @NgModule({

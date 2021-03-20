@@ -9,12 +9,14 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { RoleValidator } from '../pages/auth/helpers/roleValidator';
+import { BitacorasService } from './bitacoras.service';
+import { Bitacora } from '../shared/models/bitacora.interface';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends RoleValidator {
   public user$: Observable<User>;
 
-  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  constructor(public afAuth: AngularFireAuth, private bitacoraService: BitacorasService, private afs: AngularFirestore) {
     super();
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -45,6 +47,8 @@ export class AuthService extends RoleValidator {
         email,
         password
       );
+      
+      let bitacora  = await this.onSaveBitacora(user.uid);
       // this.updateUserData(user);
       return user;
     } catch (error) {
@@ -114,6 +118,16 @@ export class AuthService extends RoleValidator {
     };
 
     return userRef.set(data, { merge: true });
+  }
+
+    async onSaveBitacora(usuarioID: string) {
+    let bitacora: Bitacora = {
+      fe_Ins: new Date(),
+      co_usuario: usuarioID,
+    };
+
+    let id = this.bitacoraService.onSaveBitacoras(bitacora);
+    return id;
   }
 
 

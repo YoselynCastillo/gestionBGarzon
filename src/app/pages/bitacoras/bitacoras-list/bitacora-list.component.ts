@@ -23,7 +23,7 @@ ngOnInit(): void {
 
 public goToEdit(bitacora)  {
     this.navigationExtras.state.value = bitacora;
-    this.router.navigate(['bitacora/edit'], this.navigationExtras);
+    this.router.navigate(['edit-bitacora'], this.navigationExtras);
 }
 
 async goToDelete(bitacora: Bitacora): Promise<void> {
