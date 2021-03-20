@@ -45,8 +45,8 @@ export class BankAccountFormComponent implements OnInit {
   }
 
   constructor(private router: Router, private fb: FormBuilder, private bankAccountSvc: BankAccountService, private banksSrv: BankService, private accountTypeSvc: AccountTypeService) {
-    const navitation = this.router.getCurrentNavigation();
-    this.bankAccount = navitation?.extras?.state?.value;
+    const navigation = this.router.getCurrentNavigation();
+    this.bankAccount = navigation?.extras?.state?.value;
     this.initForm();
     
    }

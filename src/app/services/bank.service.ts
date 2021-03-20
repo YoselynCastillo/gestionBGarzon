@@ -16,7 +16,9 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class BankService {
+
   public user$: Observable<User> = this.authSvc.afAuth.user;
+  
   banks: Observable<Bank[]>;
 
   private banksCollection: AngularFirestoreCollection<Bank>;

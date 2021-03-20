@@ -3,6 +3,8 @@ import { AccountType } from '../shared/models/account-type.interface';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators'
+import { Audit } from '../shared/models/audit.interface';
+import { AuditService } from './audit.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class AccountTypeService {
 
   private accountsTypeCollection: AngularFirestoreCollection<AccountType>;
 
-  constructor(private readonly afs: AngularFirestore) {
+  constructor(private readonly afs: AngularFirestore, private auditService: AuditService) {
     this.accountsTypeCollection = afs.collection<AccountType>('banco_tipo_cuenta');// antes era accountsstype
     this.getAccountsType();
   }
@@ -23,6 +25,7 @@ export class AccountTypeService {
   onDeleteAccountType(empId: string): Promise<void> {
     return new Promise(async (resolve, reject) => { 
       try {
+        this.onSaveAudit(empId, true);//----------------------------- Auditoria
         const result = await this.accountsTypeCollection.doc(empId).delete();
         resolve(result);
       } catch (err) {
@@ -35,7 +38,8 @@ export class AccountTypeService {
     return new Promise(async (resolve, reject) => {
       try {
         const id = accounttypeId || this.afs.createId();
-
+        let auditoria  = await this.onSaveAudit(accounttypeId);//---- Auditoria
+        accounttype.Co_Auditoria = auditoria;//----------------------   ^
         accounttype.Co_Banco_Tipo_Cuenta = id;
         accounttype.Co_Auditoria = "xxxxx-xxxx"
 
@@ -57,6 +61,19 @@ export class AccountTypeService {
       map(actions => actions.map(a => a.payload.doc.data() as AccountType))
     );
   }
+
+  //-----------------------------------------------------------------------
   
+  async onSaveAudit( empId: string, deleteBank?: boolean) {
+    let audit: Audit = {
+      Nb_Tabla: 'Banco_Tipo_Cuenta',
+      Co_Tipo_Operacion: deleteBank ? 'Eliminar Tipo de Cuenta' :  empId ? 'Editar Tipo de Cuenta' : 'Añadir Tipo de Cuenta',
+      Tx_Sentencia: 'Tx_Sentencia',
+      Tx_Error: 'Tx_Error',
+    };
+    let Co_Auditoria = this.auditService.onSaveAudits(audit);
+    console.log(Co_Auditoria);
+    return Co_Auditoria;
+  }
 
 }
