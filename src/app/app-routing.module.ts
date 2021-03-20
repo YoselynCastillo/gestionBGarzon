@@ -7,6 +7,8 @@ const routes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full',
   },
+  { path: 'bank-list', loadChildren: () => import('./pages/bank/bank-list/bank-list.module').then(m => m.BankListModule) },
+  
   {
     path: 'list',
     loadChildren: () =>
@@ -46,7 +48,6 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./pages/auth/login/login.module').then(m => m.LoginModule) },
   { path: 'register', loadChildren: () => import('./pages/auth/register/register.module').then(m => m.RegisterModule) },
   { path: 'consultas', loadChildren: () => import('./pages/consultas/consultas-list/consultas.module').then(m => m.ConsultasModule) },
-  { path: 'bank-list', loadChildren: () => import('./pages/bank/bank-list/bank-list.module').then(m => m.BankListModule) },
   { path: 'new-bank', loadChildren: () => import('./pages/bank/new-bank/new-bank.module').then(m => m.NewBankModule) },
   { path: 'edit-bank', loadChildren: () => import('./pages/bank/edit-bank/edit-bank.module').then(m => m.EditBankModule) },
   { path: 'edit-type', loadChildren: () => import('./pages/account-type/edit-account-type/edit-account-type.module').then(m => m.EditAccountTypeModule) },
