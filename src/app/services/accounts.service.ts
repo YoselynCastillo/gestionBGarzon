@@ -1,28 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Account } from '../shared/models/account.interface';
+// import { Account } from '../shared/models/account.interface';
+import { User } from '../shared/models/user.interface';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators'
 import { BitacorasService } from 'src/app/services/bitacoras.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountsService {
 
-  accounts: Observable<Account[]>;
+//  accounts: Observable<Account[]>;
+    users: Observable<User[]>;
 
-  private accountsCollection: AngularFirestoreCollection<Account>;
+  private usersCollection: AngularFirestoreCollection<User>;
 
   constructor(private readonly afs: AngularFirestore,  private bitacoraService: BitacorasService) {
-    this.accountsCollection = afs.collection<Account>('accounts');
+    this.usersCollection = afs.collection<User>('users');
     this.getAccounts();
   }
 
   onDeleteAccounts(empId: string): Promise<void> {
     return new Promise(async (resolve, reject) => { 
       try {
-        const result = await this.accountsCollection.doc(empId).delete();
+        const result = await this.usersCollection.doc(empId).delete();
         resolve(result);
       } catch (err) {
         reject(err.message);
@@ -30,13 +33,13 @@ export class AccountsService {
     });
   }
 
-  onSaveAccounts(employee: Account, empId: string): Promise<void> {
+  onSaveAccounts(employee: User, empId: string): Promise<void> {
     return new Promise(async (resolve, reject) => {
       try {
         const id = empId || this.afs.createId();
         const data = { id, ...employee };
 
-        const result = await this.accountsCollection.doc(id).set(data);
+        const result = await this.usersCollection.doc(id).set(data);
         resolve(result);
       } catch (err) {
         reject(err.message);
@@ -46,8 +49,8 @@ export class AccountsService {
 
 
   private getAccounts(): void {
-    this.accounts = this.accountsCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data() as Account))
+    this.users = this.usersCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => a.payload.doc.data() as User))
     );
   }
   

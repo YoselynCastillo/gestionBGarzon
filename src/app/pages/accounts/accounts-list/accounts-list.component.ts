@@ -8,7 +8,7 @@ import { AccountsService } from 'src/app/services/accounts.service';
   styleUrls: ['./accounts-list.component.scss'],
 })
 export class AccountsListComponent implements OnInit {
-  accounts$ = this.accountsService.accounts;
+  users$ = this.accountsService.users;
   navigationExtras: NavigationExtras = {
     state: {
       value: null

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EditBankRoutingModule } from './edit-bank-routing.module';
 import { EditBankComponent } from './edit-bank.component';
 import { BankFormModule } from 'src/app/shared/components/bank-form/bank-form.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { BankFormModule } from 'src/app/shared/components/bank-form/bank-form.mo
   imports: [
     CommonModule,
     EditBankRoutingModule,
+    ReactiveFormsModule,
     BankFormModule
   ]
 })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountsService } from 'src/app/services/accounts.service';
-import { Account } from '../../models/account.interface';
+import { User } from '../../models/user.interface';
 import { Bitacora } from '../../models/bitacora.interface';
 
 @Component({
@@ -12,9 +12,9 @@ import { Bitacora } from '../../models/bitacora.interface';
 })
 export class AccountFormComponent implements OnInit {
 
-  account: Account;
+  user: User;
   bitacora: Bitacora;
-  accountForm: FormGroup;
+  userForm: FormGroup;
 
   private isEmail = /\S+@\S+\.\S+/;
 
@@ -24,25 +24,25 @@ export class AccountFormComponent implements OnInit {
     private accountsService: AccountsService
   ) {
     const navigation = this.router.getCurrentNavigation();
-    this.account = navigation?.extras?.state?.value;
+    this.user = navigation?.extras?.state?.value;
     this.initForm();
   }
 
   ngOnInit(): void {
-    if (typeof this.account === 'undefined') {
+    if (typeof this.user === 'undefined') {
       this.router.navigate(['new']);
     } else {
-      this.accountForm.patchValue(this.account);
+      this.userForm.patchValue(this.user);
     }
   }
 
   onSave(): void {
-    console.log('Saved', this.accountForm.value);
-    if (this.accountForm.valid) {
-      const account = this.accountForm.value;
-      const accountId = this.account?.id || null;
-      this.accountsService.onSaveAccounts(account, accountId);
-      this.accountForm.reset();
+    console.log('Saved', this.userForm.value);
+    if (this.userForm.valid) {
+      const user = this.userForm.value;
+      const accountId = this.user?.uid || null;
+      this.accountsService.onSaveAccounts(user, accountId);
+      this.userForm.reset();
     }
   }
 
@@ -51,7 +51,7 @@ export class AccountFormComponent implements OnInit {
   }
 
   isValidField(field: string): string {
-    const validatedField = this.accountForm.get(field);
+    const validatedField = this.userForm.get(field);
     return !validatedField.valid && validatedField.touched
       ? 'is-invalid'
       : validatedField.touched
@@ -60,11 +60,11 @@ export class AccountFormComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.accountForm = this.fb.group({
-      username: ['', [Validators.required]],
+    this.userForm = this.fb.group({
+      Nb_Usuario: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern(this.isEmail)]],
-      movil: ['', [Validators.required]],
-      clave: ['', [Validators.required]],
+      Nu_Movil: ['', [Validators.required]],
+      role: ['', [Validators.required]],
     });
   }
 }

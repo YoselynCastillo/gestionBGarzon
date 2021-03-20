@@ -2,10 +2,10 @@
 
 <div class="container col-md-11">
   <div class="col-md-10 offset-md-1"><hr>
-    <form (ngSubmit)="onSave()" [formGroup]="accountForm">
+    <form (ngSubmit)="onSave()" [formGroup]="userForm">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Username" formControlName="username" [class]="isValidField('username')">
+          <input type="text" class="form-control" placeholder="Username" formControlName="Nb_Usuario" [class]="isValidField('Nb_Usuario')">
           <!-- <div class="invalid-feedback">
             <span *ngIf="accountForm.get('username').errors?.required">
               This field is required.
@@ -23,7 +23,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Movil" formControlName="movil" [class]="isValidField('movil')">
+          <input type="text" class="form-control" placeholder="Movil" formControlName="Nu_Movil" [class]="isValidField('Nu_Movil')">
           <!-- <div class="invalid-feedback">
             <span *ngIf="accountForm.get('email').errors?.required">
               This field is required.
@@ -34,7 +34,7 @@
           </div> -->
         </div>
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Clave" formControlName="clave" [class]="isValidField('clave')">
+          <input type="text" class="form-control" placeholder="role" disabled="true" formControlName="role" [class]="isValidField('role')">
           <!-- <div class="invalid-feedback">
             <span *ngIf="accountForm.get('startDate').errors?.required">
               This field is required.
@@ -43,8 +43,9 @@
         </div>
       </div>
       <div class="container-fluid	row justify-content-around">
-        <button type="submit" class="btn bg-dark text-light col-md-5">Guardar</button>
         <button type="button" class="btn btn-secondary col-md-5 float-center" (click)="onGoBackToList()">Go Back to list</button>
+        <button type="submit" class="btn bg-dark text-light col-md-5">Guardar</button>
+        
       </div>
     </form>
   </div>

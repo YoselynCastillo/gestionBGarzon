@@ -24,7 +24,7 @@ export class LoginComponent {
     try {
       const user = await this.authSvc.login(email, password);
       if (user) {
-        this.router.navigate(['/list']);
+        this.router.navigate(['/bank-list']);
         // this.checkUserIsVerified(user);
       } else{
         this.router.navigate(['/register']);
