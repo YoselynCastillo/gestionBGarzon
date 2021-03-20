@@ -41,13 +41,10 @@ export class AccountTypeService {
         let auditoria  = await this.onSaveAudit(accounttypeId);//---- Auditoria
         accounttype.Co_Auditoria = auditoria;//----------------------   ^
         accounttype.Co_Banco_Tipo_Cuenta = id;
-        accounttype.Co_Auditoria = "xxxxx-xxxx"
-
 
         console.log(accounttype);
         const result = await this.accountsTypeCollection.doc(accounttype.Co_Banco_Tipo_Cuenta).set(accounttype);
         resolve(result);
-        console.log(result);
         
       } catch (err) {
         reject(err.message);

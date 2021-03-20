@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AccountsService } from 'src/app/services/accounts.service';
-import { Account } from 'src/app/shared/models/account.interface';
+import { User } from 'src/app/shared/models/user.interface';
 
 @Component({
   selector: 'app-account-details',
@@ -10,7 +10,7 @@ import { Account } from 'src/app/shared/models/account.interface';
 })
 export class AccountDetailsComponent implements OnInit {
 
-  account: Account = null;
+  user: User = null;
 
   navigationExtras: NavigationExtras = {
     state: {
@@ -19,12 +19,12 @@ export class AccountDetailsComponent implements OnInit {
   };
   constructor(private router: Router, private accountsService: AccountsService) {
     const navigation = this.router.getCurrentNavigation();
-    this.account = navigation?.extras?.state?.value;
+    this.user = navigation?.extras?.state?.value;
    }
 
 
   ngOnInit(): void {
-    if (typeof this.account === 'undefined') {
+    if (typeof this.user === 'undefined') {
       this.router.navigate(['list']);
     }
   }
@@ -36,7 +36,7 @@ export class AccountDetailsComponent implements OnInit {
 
   async goToDelete(): Promise<void> {
     try {
-      await this.accountsService.onDeleteAccounts(this.account?.id);
+      await this.accountsService.onDeleteAccounts(this.user?.uid);
       alert('Deleted');
       this.goBackToList();
     } catch (err) {

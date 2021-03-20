@@ -23,6 +23,7 @@ export class AccountsService {
   }
 
   onDeleteAccounts(empId: string): Promise<void> {
+    console.log("el id es: " + empId);
     return new Promise(async (resolve, reject) => { 
       try {
         const result = await this.usersCollection.doc(empId).delete();

@@ -42,6 +42,7 @@ export class AccountTypeFormComponent implements OnInit {
       const accountTypeId = this.accountType?.Co_Banco_Tipo_Cuenta || null;
 
       this.accountstypeService.onSaveAccountType(accounttype, accountTypeId );
+      this.router.navigate(['type-list']);
       this.accountTypeForm.reset();
     } else {
       console.log ("fallo");
@@ -49,10 +50,8 @@ export class AccountTypeFormComponent implements OnInit {
   }
 
   onGoBackToList(){
-
+    this.router.navigate(['type-list']);
   }
-
-  
 
   private initForm(): void {
     this.accountTypeForm = this.fb.group({
