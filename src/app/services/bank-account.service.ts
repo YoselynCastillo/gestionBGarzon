@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { BankAccount } from '../shared/models/bank-account.interface';
 import { Audit } from '../shared/models/audit.interface';
 import { AuditService } from './audit.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,12 @@ export class BankAccountService {
 
   private bankAccountColection: AngularFirestoreCollection<BankAccount>;
 
-  constructor(private readonly afs: AngularFirestore, private auditService: AuditService) { 
+  constructor(private readonly afs: AngularFirestore, private auditService: AuditService, public auth: AngularFireAuth) { 
     this.bankAccountColection = afs.collection<BankAccount>('banco_cuenta');
     this.getBankAccount();
+    let usuario: string;
+    auth.onAuthStateChanged(user => usuario = user.uid); //uid
+    console.log(usuario);
   }
 
   onSaveBankAccount(bankAccount: BankAccount, bankAccountId: string): Promise<void>{

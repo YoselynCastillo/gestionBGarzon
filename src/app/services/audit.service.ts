@@ -6,6 +6,7 @@ import {
   AngularFirestoreCollection,
 } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,7 +16,7 @@ export class AuditService {
   private auditsCollection: AngularFirestoreCollection<Audit>;
   audit: Observable<Audit[]>;
 
-  constructor(private readonly afs: AngularFirestore) {
+  constructor(private readonly afs: AngularFirestore, private auth: AngularFireAuth) {
     this.auditsCollection = afs.collection<Audit>('Auditoria');
     this.getAudits();
   }
@@ -53,20 +54,26 @@ export class AuditService {
     return audit.Co_Auditoria;
   }
 
-
+  //auth.onAuthStateChanged(user => console.log(user.uid));
   onSaveAudits(audit: Audit) {
     const id = this.afs.createId();
     audit.Co_Auditoria = id;
     audit.Co_MAC = 'Co_MAC';
     audit.Co_IP = 'Co_IP';
-    audit.Co_Usuario = 'Co_Usuario';
+    //audit.Co_Usuario = 'Co_Usuario';
     audit.Fe_ins = new Date();
     audit.St_Error = false;
 
     let promesa = new Promise(async (resolve, reject) => {
       try {
-        const result = await this.auditsCollection.doc(id).set(audit);
-        resolve(result);
+        this.auth.onAuthStateChanged((user) => {
+          if(user){
+            audit.Co_Usuario = user.uid;
+            const result = this.auditsCollection.doc(id).set(audit);// const result = await this.auditsCollection.doc(id).set(audit);
+            resolve(result);
+          }
+        });
+
       } catch (err) {
         reject(err.message);
       }
