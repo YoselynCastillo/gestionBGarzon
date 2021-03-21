@@ -14,7 +14,7 @@
         <th scope="row">{{bitacora.id}}</th>
         <td>{{bitacora.co_bitacora_previa}}</td>
         <td>{{bitacora.co_usuario}}</td>
-        <td>{{bitacora.fe_Ins}}</td>
+        <td>{{bitacora.fe_Ins.seconds * 1000 | date:'MM-dd-yyyy h:mm:ss a'}}</td>
         <td class="btn-group d-none d-sm-block" role="group">
           <!-- <button type="button" class="btn btn-outline-success m-1" (click)="goToEdit(bitacora)">Edit</button> -->
           <button type="button" class="btn btn-outline-danger m-1" (click)="goToDelete(bitacora)">Delete</button>
