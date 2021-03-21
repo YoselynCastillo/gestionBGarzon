@@ -11,6 +11,7 @@ import {
 import { RoleValidator } from '../pages/auth/helpers/roleValidator';
 import { BitacorasService } from './bitacoras.service';
 import { Bitacora } from '../shared/models/bitacora.interface';
+import {formatDate} from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends RoleValidator {
@@ -101,6 +102,7 @@ export class AuthService extends RoleValidator {
     );
     let Fe_Recuperacion= new Date();
 
+
     const data: User = {
       uid: user.uid,
       email: user.email,
@@ -121,8 +123,9 @@ export class AuthService extends RoleValidator {
   }
 
     async onSaveBitacora(usuarioID: string) {
+
     let bitacora: Bitacora = {
-      fe_Ins: new Date(),
+      fe_Ins: formatDate(new Date,'yyyy/MM/dd', 'en'),
       co_usuario: usuarioID,
     };
 

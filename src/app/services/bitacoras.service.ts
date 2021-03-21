@@ -51,28 +51,27 @@ export class BitacorasService {
 //  }
 
     onSaveBitacoras(bitacora: Bitacora) {
-    const id = this.afs.createId();
-    bitacora.id = id;
-    
+      const id = this.afs.createId();
+      bitacora.id = id;
+       
+      let  promesa = new Promise(async (resolve, reject) => {
+        try {
+          this.auth.onAuthStateChanged((user) => {
+            if(user) {
+              bitacora.co_usuario = user.uid;
+              const result = this.bitacorasCollection.doc(id).set(bitacora); // const result = await this.auditsCollection.doc(id).set(audit);
+              resolve(result);
+            }
+          });
 
-    
-    let  promesa = new Promise(async (resolve, reject) => {
-      try {
-        this.auth.onAuthStateChanged((user) => {
-          if(user) {
-            bitacora.co_usuario = user.uid;
-            const result = this.bitacorasCollection.doc(id).set(bitacora); // const result = await this.auditsCollection.doc(id).set(audit);
-            resolve(result);
-          }
-        });
+        } catch (err) {
+          reject(err.message);
+        }
+      });
 
-      } catch (err) {
-        reject(err.message);
-      }
-    });
-    promesa.then(resp=>{ console.log('Bitacora Realizada con exito'); });
-    return bitacora.id;
-  }
+      promesa.then(resp=>{ console.log('Bitacora Realizada con exito'); });
+      return bitacora.id;
+    }
 
 
   private getBitacoras(): void {

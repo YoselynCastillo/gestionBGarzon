@@ -21,10 +21,10 @@ constructor(private router: Router, private bitacorasService: BitacorasService) 
 ngOnInit(): void {
 }
 
-public goToEdit(bitacora)  {
-    this.navigationExtras.state.value = bitacora;
-    this.router.navigate(['edit-bitacora'], this.navigationExtras);
-}
+//public goToEdit(bitacora)  {
+//    this.navigationExtras.state.value = bitacora;
+//    this.router.navigate(['edit-bitacora'], this.navigationExtras);
+//}
 
 async goToDelete(bitacora: Bitacora): Promise<void> {
     try {
