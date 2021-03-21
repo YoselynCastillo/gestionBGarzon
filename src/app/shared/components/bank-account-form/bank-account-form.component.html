@@ -20,8 +20,12 @@
             <label for="inputCoCuenta" class="form-label">Codigo de Empresa</label>
             <input formControlName="Co_Empresa" type="text" class="form-control" id="inputCoCuenta" aria-describedby="emailHelp">
           </div>
-          <div class="col text-center">
+          <!-- <div class="col text-center">
             <button type="submit" class="btn btn-primary mt-4">Enviar</button>
+          </div> -->
+          <div class="container-fluid	row justify-content-around">
+            <button type="submit" class="btn bg-success text-light col-md-5">Guardar</button>
+            <button type="button" class="btn btn-primary col-md-5 float-center" (click)="onGoBackToList()">Regresar a Lista</button>
           </div>
         </form>
       </div>

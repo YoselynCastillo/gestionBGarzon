@@ -73,6 +73,10 @@ export class BankAccountFormComponent implements OnInit {
     this.accountType.Co_Banco_Tipo_Cuenta = id;
   }
 
+  onGoBackToList(){
+    this.router.navigate(['account-list']);
+  }
+
   private initForm(): void{
     this.bankAccountForm = this.fb.group({
       Co_Banco_Cuenta: ['', [Validators.required]],// generado, listo
