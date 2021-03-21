@@ -60,7 +60,7 @@ export class BankAccountFormComponent implements OnInit {
       const bankAccountId = this.bankAccount?.Co_Banco_Cuenta || null;
       this.bankAccountSvc.onSaveBankAccount(bankAccount, bankAccountId);
       console.log(bankAccount);
-      this.router.navigate(['bank-list']);
+      this.router.navigate(['account-list']);
       //this.bankAccountForm.reset();
     //}
   }

@@ -45,7 +45,7 @@ export class BankFormComponent implements OnInit {
   }
 
   onGoBackToList(): void {
-    this.router.navigate(['bank-list']);
+    this.router.navigate(['account-list']);
   }
 
   isValidField(field: string): string {

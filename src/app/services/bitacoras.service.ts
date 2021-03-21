@@ -67,6 +67,7 @@ export class BitacorasService {
         } catch (err) {
           reject(err.message);
         }
+
       });
 
       promesa.then(resp=>{ console.log('Bitacora Realizada con exito'); });
@@ -81,9 +82,8 @@ export class BitacorasService {
   }
 
 
-  private async getPrevia(co_usuario: string) {
-      return this.afs.collection('bitacoras', ref => ref.where('co_usuario','==', co_usuario).limit(1)).valueChanges();
-
+  async getPrevia(co_usuario: string) {
+      const a = this.afs.collection('bitacoras', ref => ref.where('co_usuario','==', co_usuario).limit(1)).valueChanges();
   }
   
 }
