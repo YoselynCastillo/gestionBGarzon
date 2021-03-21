@@ -41,11 +41,12 @@ export class BankFormComponent implements OnInit {
       const bankId = this.bank?.Co_Banco || null;
       this.banksService.onSaveBanks(bank, bankId);
       this.bankForm.reset();
+      this.router.navigate(['bank-list']);
     }
   }
 
   onGoBackToList(): void {
-    this.router.navigate(['account-list']);
+    this.router.navigate(['bank-list']);
   }
 
   isValidField(field: string): string {
