@@ -24,7 +24,6 @@ export class BankAccountListComponent implements OnInit {
 
   onGoToEdit(item: any): void{
     this.navitationExtras.state.value = item;
-    console.log(item);
     this.router.navigate(['edit-account'], this.navitationExtras);
   }
 
